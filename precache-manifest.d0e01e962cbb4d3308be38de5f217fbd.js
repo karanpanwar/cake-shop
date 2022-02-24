@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "0d9705eb20f010be9ee5c6fa8b77139c",
+    "revision": "4de342afd023e0f19adb653bd229d483",
     "url": "/cake-shop/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/cake-shop/static/css/2.3661fc73.chunk.css"
   },
   {
-    "revision": "8bfef360fdaff08fceb3",
+    "revision": "523272e1510ac5192988",
     "url": "/cake-shop/static/css/main.4b5f2571.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/cake-shop/static/js/2.74982ca7.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "8bfef360fdaff08fceb3",
-    "url": "/cake-shop/static/js/main.9416b28e.chunk.js"
+    "revision": "523272e1510ac5192988",
+    "url": "/cake-shop/static/js/main.3a1d501a.chunk.js"
   },
   {
     "revision": "cac8f8f1d03f33703ad6",
