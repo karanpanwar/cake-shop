@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/cake-shop/static/css/main.4b5f2571.chunk.css",
-    "main.js": "/cake-shop/static/js/main.6b1eaee7.chunk.js",
-    "main.js.map": "/cake-shop/static/js/main.6b1eaee7.chunk.js.map",
+    "main.js": "/cake-shop/static/js/main.5cb424b7.chunk.js",
+    "main.js.map": "/cake-shop/static/js/main.5cb424b7.chunk.js.map",
     "runtime-main.js": "/cake-shop/static/js/runtime-main.f2575b55.js",
     "runtime-main.js.map": "/cake-shop/static/js/runtime-main.f2575b55.js.map",
     "static/css/2.3661fc73.chunk.css": "/cake-shop/static/css/2.3661fc73.chunk.css",
     "static/js/2.74982ca7.chunk.js": "/cake-shop/static/js/2.74982ca7.chunk.js",
     "static/js/2.74982ca7.chunk.js.map": "/cake-shop/static/js/2.74982ca7.chunk.js.map",
     "index.html": "/cake-shop/index.html",
-    "precache-manifest.5cc951ad4c552ebbcd4bf83be9e68af3.js": "/cake-shop/precache-manifest.5cc951ad4c552ebbcd4bf83be9e68af3.js",
+    "precache-manifest.b8cca948906cd304c40671fc53b32f0c.js": "/cake-shop/precache-manifest.b8cca948906cd304c40671fc53b32f0c.js",
     "service-worker.js": "/cake-shop/service-worker.js",
     "static/css/2.3661fc73.chunk.css.map": "/cake-shop/static/css/2.3661fc73.chunk.css.map",
     "static/css/main.4b5f2571.chunk.css.map": "/cake-shop/static/css/main.4b5f2571.chunk.css.map",
@@ -25,6 +25,6 @@
     "static/css/2.3661fc73.chunk.css",
     "static/js/2.74982ca7.chunk.js",
     "static/css/main.4b5f2571.chunk.css",
-    "static/js/main.6b1eaee7.chunk.js"
+    "static/js/main.5cb424b7.chunk.js"
   ]
 }
