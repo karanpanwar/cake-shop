@@ -30,7 +30,7 @@ class ProductCard extends React.Component {
                         <p className={'price'}>&#8377; {price}</p>
                     </div>
                 </div>
-                <Button style={{width: '272px'}} onClick={() => this.props.handleOnClick({id, title, price})}
+                <Button style={{width: '272px'}} onClick={() => this.props.handleOnClick({id, title, price, qty: "1"})}
                         variant="danger">
                     Add to Cart
                 </Button>
@@ -58,7 +58,8 @@ class ProductCard extends React.Component {
                                 <p className={'price'}>&#8377; {price}</p>
                             </div>
                         </div>
-                        <Button style={{width: '272px'}} onClick={() => this.props.handleOnClick({id, title, price})}
+                        <Button style={{width: '272px'}}
+                                onClick={() => this.props.handleOnClick({id, title, price, qty: "1"})}
                                 variant="danger">
                             Add to Cart
                         </Button>

@@ -1,4 +1,5 @@
 import React from "react";
+import {connect} from "react-redux";
 import Button from "react-bootstrap/Button"
 import "./home.css";
 import Navbar from "react-bootstrap/Navbar";
@@ -10,8 +11,22 @@ import {
     Route,
     NavLink
 } from "react-router-dom";
+import GridView from "../_component/grid-view";
+import Dialog from "../_component/dialog";
+import {getProductsList} from "../redux/selecter";
 
 class Home extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            isCartOpen: false,
+        }
+    }
+
+    closeCartModal = () => {
+        this.setState({isCartOpen: false});
+    }
+
     render() {
         return (
             <>
@@ -34,9 +49,9 @@ class Home extends React.Component {
                                     <NavLink to="/" className={'nav-link'} exact>Home</NavLink>
                                     <NavLink to="/shop" className={'nav-link'}>Shop</NavLink>
                                 </Nav>
-                                <Button variant="light">
+                                <Button variant="light" onClick={() => this.setState({isCartOpen: !this.state.isCartOpen})}>
                                     <span className="badge badge-pill badge-danger mr-2">
-                                        5
+                                        {this.props.productsList.length}
                                     </span> Cart
                                 </Button>
                             </Navbar.Collapse>
@@ -60,9 +75,37 @@ class Home extends React.Component {
                         </div>
                     </div>
                 </div>
+                {
+                    this.state.isCartOpen &&
+                    <Dialog
+                        title="Cart"
+                        buttons={[
+                            {onClick: this.closeCartModal, variant: 'secondary', text: "Close"},
+                        ]}
+                        modalProps={{
+                            show: this.state.isCartOpen,
+                            onHide: this.closeCartModal,
+                            size: "xl",
+                        }}
+                    >
+                        <GridView
+                            columns={[
+                                {label: "Product", key: "title"},
+                                {label: "Price", key: "price"},
+                                {label: "Quantity", key: "qty"}
+                            ]}
+                            data={this.props.productsList}
+                        />
+                    </Dialog>
+                }
             </>
         );
     }
 }
 
-export default Home;
+const mapStateToProps = (state) => {
+    const productsList = getProductsList(state);
+    return {productsList};
+}
+
+export default connect(mapStateToProps)(Home);

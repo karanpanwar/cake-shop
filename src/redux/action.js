@@ -1,8 +1,7 @@
 import {
     ADD_PRODUCT,
-    UPDATE_PRODUCT,
+    UPDATE_PRODUCT_QUANTITY,
     DELETE_PRODUCT,
-    DELETE_ALL_PRODUCT,
 } from "./action-types";
 
 export const addProduct = (data) => ({
@@ -10,8 +9,8 @@ export const addProduct = (data) => ({
     data,
 });
 
-export const updateProduct = (data) => ({
-    type: UPDATE_PRODUCT,
+export const updateProductQuantity = (data) => ({
+    type: UPDATE_PRODUCT_QUANTITY,
     data,
 });
 
@@ -20,7 +19,4 @@ export const deleteProduct = (idx) => ({
     idx,
 });
 
-export const deleteAllProduct = () => ({
-    type: DELETE_ALL_PRODUCT,
-});
 

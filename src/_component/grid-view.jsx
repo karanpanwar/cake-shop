@@ -1,12 +1,12 @@
 import React, {useState} from "react";
-import {Table, Alert, Button} from "react-bootstrap";
 import {connect} from "react-redux";
-import {deleteProduct} from "../redux/action";
+import Form from 'react-bootstrap/Form';
+import {Table, Alert, Button} from "react-bootstrap";
 import Dialog from "./dialog";
+import {deleteProduct, updateProductQuantity} from "../redux/action";
 
 function GridView(props) {
     const [{showDeleteDialog, idx}, setDeleteDialog] = useState({showDeleteDialog: false, idx: -1});
-
 
     return (
         <div className="container">
@@ -25,11 +25,25 @@ function GridView(props) {
                     props.data.map((row, i) => {
                         return (
                             <tr key={i}>
-                                {props.columns.map((o, j) => (
-                                    <td key={j}>{row[o.key]}</td>
-                                ))}
+                                {props.columns.map((o, j) => {
+                                    if (o.key === 'qty') {
+                                        return <td key={j}>
+                                            <Form.Select value={row[o.key]}
+                                                         onChange={(e) => props.updateProductQuantity({
+                                                             id: row.id,
+                                                             qty: e.target.value
+                                                         })}>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="5">4</option>
+                                                <option value="5">5</option>
+                                            </Form.Select>
+                                        </td>
+                                    }
+                                    return <td key={j}>{row[o.key]}</td>
+                                })}
                                 <td>
-                                    <Button variant="primary" onClick={() => props.editModalShow(i)}>Edit</Button>{" "}
                                     <Button
                                         variant="danger"
                                         onClick={() => setDeleteDialog({showDeleteDialog: true, idx: i})}
@@ -74,5 +88,6 @@ function GridView(props) {
 }
 
 export default connect(null, {
-    deleteProduct
+    deleteProduct,
+    updateProductQuantity
 })(GridView);

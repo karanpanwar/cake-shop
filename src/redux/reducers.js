@@ -1,89 +1,52 @@
 import {combineReducers} from "redux";
 import {
     ADD_PRODUCT,
-    UPDATE_PRODUCT,
+    UPDATE_PRODUCT_QUANTITY,
     DELETE_PRODUCT,
-    DELETE_ALL_PRODUCT,
-    CHECK_PRODUCT,
-    VISIBILITY_FILTER,
-    CHECK_ALL_PRODUCT,
 } from "./action-types";
 
+
+const setProductsList = (key, value) => {
+    sessionStorage.setItem(key, JSON.stringify(value));
+}
+const getProductsList = key => {
+    return JSON.parse(sessionStorage.getItem(key));
+}
+
 const initialState = {
-    lists: [
-        {
-            name: "iphone 12",
-            description: "Apple",
-            category: "Mobile",
-            expiryDate: "2021-05-13",
-            costPrice: "40000",
-            sellPrice: "65000",
-            discount: "10",
-            discountedSellPrice: "58500",
-            gst: "18",
-            finalPrice: "69030",
-            checked: false,
-        },
-        {
-            name: "macbook pro",
-            description: "Apple",
-            category: "Laptop",
-            expiryDate: "2021-05-13",
-            costPrice: "40000",
-            sellPrice: "65000",
-            discount: "10",
-            discountedSellPrice: "58500",
-            gst: "18",
-            finalPrice: "69030",
-            checked: false,
-        },
-    ],
-    checkedLength: 0,
-    visibilityFilter: [],
+    lists: getProductsList('productList') ? getProductsList('productList') : [],
 };
 
 const list = function (state = initialState, action) {
     switch (action.type) {
         case ADD_PRODUCT: {
             const product = action.data;
+            const idx = state.lists.findIndex(item => item.id === product.id);
+            if (idx !== -1) return state;
+            setProductsList('productList', [...state.lists, product]);
             return {
                 ...state,
                 lists: [...state.lists, product],
             };
         }
-        case UPDATE_PRODUCT: {
-            const {idx, product} = action.data;
+        case UPDATE_PRODUCT_QUANTITY: {
+            const {id, qty} = action.data;
             const copy = {...state};
-            const newlists = [...copy.lists];
-            newlists[idx] = product;
-            return {...state, lists: newlists};
+            const idx = copy.lists.findIndex(item => item.id === id);
+            const newLists = [...copy.lists];
+            newLists[idx].qty = qty;
+            setProductsList('productList', newLists);
+            return {...state, lists: newLists};
         }
         case DELETE_PRODUCT: {
             const idx = action.idx;
             const copy = {...state};
-            const newlists = [...copy.lists];
-            console.log(idx)
-            newlists[idx].checked = false;
-            const copyCheckedLength =
-                copy.checkedLength !== 0 ? copy.checkedLength - 1 : 0;
-            newlists.splice(idx, 1);
-
+            const newLists = [...copy.lists];
+            newLists.splice(idx, 1);
+            setProductsList('productList', newLists);
             return {
                 ...state,
-                checkedLength: copyCheckedLength,
-                lists: newlists,
-            };
-        }
-        case DELETE_ALL_PRODUCT: {
-            const copy = {...state};
-            const copylists = [...copy.lists];
-            const newlists = copylists.filter((item) => {
-                return item.checked !== true;
-            });
-            return {
-                ...state,
-                checkedLength: 0,
-                lists: newlists,
+                lists: newLists,
             };
         }
         default: {

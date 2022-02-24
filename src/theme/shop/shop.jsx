@@ -1,6 +1,8 @@
 import React from "react";
+import {connect} from "react-redux";
 import "./shop.css";
-import ProductCard from "../../_component/productc-card";
+import ProductCard from "../../_component/product-card";
+import {addProduct} from "../../redux/action";
 
 class Shop extends React.Component {
     constructor(props) {
@@ -63,7 +65,7 @@ class Shop extends React.Component {
             {
                 id: 10,
                 title: 'Swanky Black Forest Cake',
-                price: '',
+                price: '2500',
                 image: './product/swanky-black-forest-cake.jpg'
             }
         ];
@@ -71,7 +73,7 @@ class Shop extends React.Component {
     }
 
     handleOnClick = product => {
-        console.log(product);
+        this.props.addProduct(product)
     }
 
     render() {
@@ -88,4 +90,4 @@ class Shop extends React.Component {
     }
 }
 
-export default Shop;
+export default connect(null, {addProduct})(Shop);
