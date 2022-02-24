@@ -61,12 +61,6 @@ class Shop extends React.Component {
                 title: 'Stunning Barbie Doll Cake',
                 price: '2199',
                 image: '/product/stunning-barbie-doll-cake.jpg'
-            },
-            {
-                id: 10,
-                title: 'Swanky Black Forest Cake',
-                price: '2500',
-                image: './product/swanky-black-forest-cake.jpg'
             }
         ];
 
