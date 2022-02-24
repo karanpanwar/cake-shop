@@ -20,8 +20,8 @@ class Home extends React.Component {
         super();
         this.state = {
             isCartOpen: false,
-        }
-        this.homePath = (process.env.NODE_ENV || process.env.NODE_ENV === 'development') ?  '/' : '/cake-shop/';
+        };
+        this.homePath = process.env.PUBLIC_URL;
     }
 
     closeCartModal = () => {
