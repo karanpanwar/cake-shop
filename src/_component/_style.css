@@ -1,0 +1,140 @@
+.col.item {
+  /* border : 1px solid red; */
+  padding: 10px;
+}
+.desc {
+  width: 272px;
+  text-align: center;
+  padding: 5px;
+}
+.desc h3 {
+  font-weight: 900;
+}
+.desc .price {
+  font-weight: bold;
+}
+.desc p {
+  font-size: 14px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.desc p .btn-danger {
+  width: 100%;
+}
+
+.product {
+  cursor: pointer;
+}
+
+.cake-img {
+  padding: 10px;
+  border: 1px solid gainsboro;
+}
+.cake-img img {
+  height: 250px;
+  width: 250px;
+}
+.order{
+    justify-content: center;
+    width: 80%;
+}
+form {
+  padding: 25px;
+  margin-bottom: 20px;
+}
+.order input,select {
+  padding: 5px;
+  margin-bottom: 20px ;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #eee;
+}
+.order input,select:focus{
+    outline-width: 1px;
+    outline-color: #cb7597;
+}
+input::placeholder {
+  color: rgba(0, 0, 0, 0.308);
+}
+option {
+  /* background: black; */
+  border: none;
+}
+.order .metod {
+  display: flex;
+  margin-top: 15px;
+}
+input[type="radio"] {
+  display: none;
+}
+label.radio {
+  position: relative;
+  display: inline-block;
+  margin-right: 20px;
+  text-indent: 32px;
+  cursor: pointer;
+}
+label.radio:before {
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: 0;
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  border: 2px solid #cb7597;
+}
+label.radio:after {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 4px;
+  top: 10px;
+  left: 5px;
+  border-bottom: 3px solid #cb7597;
+  border-left: 3px solid #cb7597;
+  transform: rotate(-45deg);
+  opacity: 0;
+}
+input[type="radio"]:checked + label:after {
+  opacity: 1;
+}
+.order button {
+  display: block;
+  width: 200px;
+  padding: 10px;
+  margin: 20px auto 0;
+  border: none;
+  border-radius: 5px;
+  background: #cb7597;
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+}
+.order button:hover {
+  background: #cb7597;
+}
+@media (min-width: 568px) {
+  .info {
+    flex-flow: row wrap;
+    justify-content: space-between;
+    margin-bottom: 15px;
+  }
+  input {
+    width: 50%;
+  }
+  input.fname {
+    width: 100%;
+  }
+  textarea{
+      width: 100%;
+      outline-color: #cb7597;
+      margin-bottom: 15px !important;
+  }
+  .info label{
+      width: 50%;
+  }
+  select {
+    width: 50%;
+  }
+}
