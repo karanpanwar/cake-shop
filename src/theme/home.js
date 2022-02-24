@@ -71,7 +71,7 @@ class Home extends React.Component {
                     <div className="container">
                         <hr/>
                         <div className={"footer-tag d-flex justify-content-centre"}>
-                            <p>best cake &copy;2020 Privacy policy</p>
+                            <p>best cake &copy;2022 Privacy policy</p>
                             <p className={"ml-auto"}>Developed By Karan.</p>
                         </div>
                     </div>
