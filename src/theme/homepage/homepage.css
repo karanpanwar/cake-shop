@@ -1,0 +1,48 @@
+.banner{
+    background-color:#e2cbcb24;
+    display: flex;
+    flex-wrap: row wrap;
+    height: 450px;
+    align-items: center;
+}
+.homepage .img{
+    width: 700px;
+}
+h1{
+    font-family: Pacifico;
+    color: #c0477a;
+}
+h6{
+    font-weight: 600 !important;
+}
+.cake-home {
+    position: absolute;
+    right: 0;
+}
+.banner-offer{
+    padding: 20px;
+    padding-bottom: 0;
+}
+.col.item{
+    /* border : 1px solid red; */
+    padding: 10px;
+}
+.desc{
+    width: 272px;
+    text-align: center;
+    padding: 5px;
+}
+.desc h3{
+    font-weight: 900;
+}
+.desc p{
+    font-size: 14px;
+}
+.cake-img{
+    padding: 10px;
+    border: 1px solid gainsboro;
+}
+.cake-img img{
+    height: 250px;
+    width: 250px;
+}
