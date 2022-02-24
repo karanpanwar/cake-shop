@@ -21,6 +21,7 @@ class Home extends React.Component {
         this.state = {
             isCartOpen: false,
         }
+        this.homePath = (process.env.NODE_ENV || process.env.NODE_ENV === 'development') ?  '/' : '/cake-shop/';
     }
 
     closeCartModal = () => {
@@ -46,8 +47,8 @@ class Home extends React.Component {
                             <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
                             <Navbar.Collapse id="responsive-navbar-nav">
                                 <Nav className="mr-auto">
-                                    <NavLink to="/" className={'nav-link'} exact>Home</NavLink>
-                                    <NavLink to="/shop" className={'nav-link'}>Shop</NavLink>
+                                    <NavLink to={this.homePath} className={'nav-link'} exact>Home</NavLink>
+                                    <NavLink to={`${this.homePath}/shop`} className={'nav-link'}>Shop</NavLink>
                                 </Nav>
                                 <Button variant="light" onClick={() => this.setState({isCartOpen: !this.state.isCartOpen})}>
                                     <span className="badge badge-pill badge-danger mr-2">
@@ -59,10 +60,10 @@ class Home extends React.Component {
                     </div>
                 </div>
                 <Switch>
-                    <Route path="/shop">
+                    <Route path={`${this.homePath}/shop`}>
                         <Shop/>
                     </Route>
-                    <Route exact path="/">
+                    <Route exact path={this.homePath}>
                         <Homepage/>
                     </Route>
                 </Switch>
