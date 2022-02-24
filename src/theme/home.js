@@ -29,7 +29,6 @@ class Home extends React.Component {
     }
 
     render() {
-        console.log(this.homePath);
         return (
             <>
                 <div className="container d-flex flex-row justify-content-between header">
