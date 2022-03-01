@@ -66,8 +66,8 @@ class Shop extends React.Component {
 
     }
 
-    handleOnClick = product => {
-        this.props.addProduct(product)
+    handleOnClick = _product => {
+        this.props.addProduct(_product);
     }
 
     render() {
@@ -76,7 +76,7 @@ class Shop extends React.Component {
             <div className={"container"}>
                 <div className="row justify-content-center">
                     {this.products.map((product, index) => <ProductCard key={index}
-                                                                        handleOnClick={() => this.handleOnClick(product)}
+                                                                        handleOnClick={(_product) => this.handleOnClick(_product)}
                                                                         product={product}/>)}
                 </div>
             </div>

@@ -1,6 +1,6 @@
 import React from "react";
-import {connect} from "react-redux";
-import Button from "react-bootstrap/Button"
+import { connect } from "react-redux";
+import Button from "react-bootstrap/Button";
 import "./home.css";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
@@ -24,9 +24,21 @@ class Home extends React.Component {
         this.homePath = process.env.PUBLIC_URL;
     }
 
-    closeCartModal = () => {
-        this.setState({isCartOpen: false});
-    }
+  closeCartModal = () => {
+    this.setState({ isCartOpen: false });
+  };
+
+  getCartTotalItems = () => {
+    const cartItems = this.props.productsList;
+    let total = 0;
+    cartItems.forEach((item) => {
+        if(item.qty) {
+            total += Number(item.qty);
+
+        }
+    });
+    return Number(total);
+  };
 
     render() {
         return (
@@ -52,7 +64,7 @@ class Home extends React.Component {
                                 </Nav>
                                 <Button variant="light" onClick={() => this.setState({isCartOpen: !this.state.isCartOpen})}>
                                     <span className="badge badge-pill badge-danger mr-2">
-                                        {this.props.productsList.length}
+                                        { this.getCartTotalItems() }
                                     </span> Cart
                                 </Button>
                             </Navbar.Collapse>
